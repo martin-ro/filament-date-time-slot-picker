@@ -1,13 +1,13 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace ZepFietje\DateTimeSlotPicker;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
-class SkeletonServiceProvider extends PluginServiceProvider
+class DateTimeSlotPickerServiceProvider extends PluginServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-date-time-slot-picker';
 
     protected array $resources = [
         // CustomResource::class,
@@ -22,15 +22,15 @@ class SkeletonServiceProvider extends PluginServiceProvider
     ];
 
     protected array $styles = [
-        'plugin-skeleton' => __DIR__ . '/../resources/dist/skeleton.css',
+        'plugin-filament-date-time-slot-picker' => __DIR__ . '/../resources/dist/filament-date-time-slot-picker.css',
     ];
 
     protected array $scripts = [
-        'plugin-skeleton' => __DIR__ . '/../resources/dist/skeleton.js',
+        'plugin-filament-date-time-slot-picker' => __DIR__ . '/../resources/dist/filament-date-time-slot-picker.js',
     ];
 
     // protected array $beforeCoreScripts = [
-    //     'plugin-skeleton' => __DIR__ . '/../resources/dist/skeleton.js',
+    //     'plugin-filament-date-time-slot-picker' => __DIR__ . '/../resources/dist/filament-date-time-slot-picker.js',
     // ];
 
     public function configurePackage(Package $package): void
