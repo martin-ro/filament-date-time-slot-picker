@@ -13,7 +13,7 @@ class FilamentDateTimeSlotPickerServiceProvider extends PluginServiceProvider
         'plugin-filament-date-time-slot-picker' => __DIR__.'/../resources/dist/filament-date-time-slot-picker.css',
     ];
 
-    protected array $scripts = [
+    protected array $beforeCoreScripts = [
         'plugin-filament-date-time-slot-picker' => __DIR__.'/../resources/dist/filament-date-time-slot-picker.js',
     ];
 
