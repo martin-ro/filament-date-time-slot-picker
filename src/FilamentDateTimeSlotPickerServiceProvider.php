@@ -2,6 +2,7 @@
 
 namespace ZepFietje\FilamentDateTimeSlotPicker;
 
+use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 
@@ -22,5 +23,15 @@ class FilamentDateTimeSlotPickerServiceProvider extends PluginServiceProvider
         $package
             ->name(static::$name)
             ->hasViews();
+    }
+
+    public function packageBooted(): void
+    {
+        foreach ($this->styles as $name => $path) {
+            Filament::registerRenderHook(
+                'head.end',
+                fn (): string => '<link rel="stylesheet" href="'.route('filament.asset', ['file' => "$name.css"]).'" />',
+            );
+        }
     }
 }
