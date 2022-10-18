@@ -6,6 +6,8 @@ document.addEventListener('alpine:init', () => {
 
         selectedDate: null,
 
+        selectedOption: null,
+
         monthStart: new Date(new Date().getFullYear(), new Date().getMonth()),
 
         init() {
@@ -103,9 +105,7 @@ document.addEventListener('alpine:init', () => {
         },
 
         isOption(date) {
-            return this.options.some((option) =>
-                this.isSameDate(date, option.start),
-            );
+            return this.getOptionsForDate(date).length > 0;
         },
 
         isSelected(date) {
@@ -114,6 +114,20 @@ document.addEventListener('alpine:init', () => {
 
         selectDate(date) {
             this.selectedDate = date;
+        },
+
+        getOptionsForDate(date) {
+            return this.options.filter((option) =>
+                this.isSameDate(date, option.start),
+            );
+        },
+
+        get optionsForSelectedDate() {
+            return this.getOptionsForDate(this.selectDate);
+        },
+
+        setState(option) {
+            this.state = [option.start, option.end];
         },
     }));
 });
