@@ -17,6 +17,10 @@ document.addEventListener('alpine:init', () => {
             }));
         },
 
+        get locale() {
+            return document.documentElement.lang;
+        },
+
         get month() {
             let month = [];
             let date = new Date(this.monthStart);
@@ -36,7 +40,7 @@ document.addEventListener('alpine:init', () => {
 
         get monthLabel() {
             return (
-                this.monthStart.toLocaleString(document.documentElement.lang, {
+                this.monthStart.toLocaleString(this.locale, {
                     month: 'long',
                 }) +
                 ' ' +
@@ -51,7 +55,7 @@ document.addEventListener('alpine:init', () => {
         getWeekDayLabel(index) {
             let date = new Date();
             date.setDate(date.getDate() + (index - date.getDay()));
-            return date.toLocaleString(document.documentElement.lang, {
+            return date.toLocaleString(this.locale, {
                 weekday: 'short',
             });
         },
@@ -117,10 +121,11 @@ document.addEventListener('alpine:init', () => {
         },
 
         get selectedDateLabel() {
-            return this.selectedDate.toLocaleDateString(
-                document.documentElement.lang,
-                { weekday: 'long', month: 'long', day: 'numeric' },
-            );
+            return this.selectedDate.toLocaleDateString(this.locale, {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+            });
         },
 
         getOptionsForDate(date) {
@@ -134,10 +139,10 @@ document.addEventListener('alpine:init', () => {
         },
 
         getOptionLabel(option) {
-            return option.start.toLocaleTimeString(
-                document.documentElement.lang,
-                { hour: '2-digit', minute: '2-digit' },
-            );
+            return option.start.toLocaleTimeString(this.locale, {
+                hour: '2-digit',
+                minute: '2-digit',
+            });
         },
 
         isSelectedOption(option) {
