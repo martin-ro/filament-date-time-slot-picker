@@ -80,6 +80,7 @@
                             ></button>
 
                             <button
+                                type="button"
                                 class="rounded bg-primary-600 text-sm font-semibold text-white"
                                 x-show="selectedOption === option"
                                 x-on:click="setState(option)"
