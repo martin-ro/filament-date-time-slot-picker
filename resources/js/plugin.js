@@ -117,6 +117,9 @@ document.addEventListener('alpine:init', () => {
         },
 
         selectDate(date) {
+            this.state = null;
+            this.selectedOption = null;
+
             this.selectedDate = date;
         },
 
