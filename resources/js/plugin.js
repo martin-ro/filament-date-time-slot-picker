@@ -108,12 +108,19 @@ document.addEventListener('alpine:init', () => {
             return this.getOptionsForDate(date).length > 0;
         },
 
-        isSelected(date) {
+        isSelectedDate(date) {
             return this.isSameDate(date, this.selectedDate);
         },
 
         selectDate(date) {
             this.selectedDate = date;
+        },
+
+        get selectedDateLabel() {
+            return this.selectedDate.toLocaleDateString(
+                document.documentElement.lang,
+                { weekday: 'long', month: 'long', day: 'numeric' },
+            );
         },
 
         getOptionsForDate(date) {
@@ -124,6 +131,17 @@ document.addEventListener('alpine:init', () => {
 
         get optionsForSelectedDate() {
             return this.getOptionsForDate(this.selectDate);
+        },
+
+        getOptionLabel(option) {
+            return option.start.toLocaleTimeString(
+                document.documentElement.lang,
+                { hour: '2-digit', minute: '2-digit' },
+            );
+        },
+
+        isSelectedOption(option) {
+            return option === this.selectedOption;
         },
 
         setState(option) {

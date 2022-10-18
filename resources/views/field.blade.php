@@ -45,13 +45,13 @@
                             'after:absolute after:bottom-1 after:h-1 after:w-1 after:rounded-full after:bg-current': isToday(date),
                             'text-gray-500': !isOption(date),
                             'font-semibold': isOption(date),
-                            'cursor-pointer bg-primary-100 text-primary-600 hover:bg-primary-200': isOption(date) && !isSelected(date),
-                            'bg-primary-600 text-white': isSelected(date),
+                            'cursor-pointer bg-primary-100 text-primary-600 hover:bg-primary-200': isOption(date) && !isSelectedDate(date),
+                            'bg-primary-600 text-white': isSelectedDate(date),
                         }"
                         x-bind:style="index === 0 ? `grid-column: ${monthStartDay}` : false"
-                        x-bind:disabled="!isOption(date) || isSelected(date)"
+                        x-bind:disabled="!isOption(date) || isSelectedDate(date)"
                         x-text="date.getDate()"
-                        x-on:click="isOption(date) && !isSelected(date) ? selectDate(date) : false"
+                        x-on:click="isOption(date) && !isSelectedDate(date) ? selectDate(date) : false"
                     ></button>
                 </template>
             </div>
@@ -61,7 +61,7 @@
             <div class="col-span-2 flex flex-col gap-4">
                 <div
                     class="flex h-10 items-center text-sm font-medium capitalize"
-                    x-text="selectedDate.toLocaleDateString(document.documentElement.lang, { weekday: 'long', month: 'long', day: 'numeric' })"
+                    x-text="selectedDateLabel"
                 ></div>
 
                 <div class="flex flex-col gap-3">
@@ -71,18 +71,18 @@
                                 type="button"
                                 class="rounded border p-4 text-sm font-semibold"
                                 x-bind:class="{
-                                    'col-span-2 border-primary-400 text-primary-600 hover:border-primary-600 hover:ring-1 hover:ring-inset hover:ring-primary-600 focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600': option !== selectedOption,
-                                    'col-span-1 border-gray-600 bg-gray-600 text-white': option === selectedOption,
+                                    'col-span-2 border-primary-400 text-primary-600 hover:border-primary-600 hover:ring-1 hover:ring-inset hover:ring-primary-600 focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600': !isSelectedOption(option),
+                                    'col-span-1 border-gray-600 bg-gray-600 text-white': isSelectedOption(option),
                                 }"
-                                x-bind:disabled="selectedOption === option"
-                                x-text="option.start.toLocaleTimeString(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' })"
+                                x-bind:disabled="isSelectedOption(option)"
+                                x-text="getOptionLabel(option)"
                                 x-on:click="selectedOption = option"
                             ></button>
 
                             <button
                                 type="button"
                                 class="rounded bg-primary-600 text-sm font-semibold text-white"
-                                x-show="selectedOption === option"
+                                x-show="isSelectedOption(option)"
                                 x-on:click="setState(option)"
                             >
                                 Confirm
