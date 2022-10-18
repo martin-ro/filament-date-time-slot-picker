@@ -4,7 +4,6 @@ namespace ZepFietje\FilamentDateTimeSlotPicker;
 
 use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
-use Spatie\LaravelPackageTools\Package;
 
 class FilamentDateTimeSlotPickerServiceProvider extends PluginServiceProvider
 {
@@ -17,13 +16,6 @@ class FilamentDateTimeSlotPickerServiceProvider extends PluginServiceProvider
     protected array $beforeCoreScripts = [
         'plugin-filament-date-time-slot-picker' => __DIR__.'/../resources/dist/filament-date-time-slot-picker.js',
     ];
-
-    public function configurePackage(Package $package): void
-    {
-        $package
-            ->name(static::$name)
-            ->hasViews();
-    }
 
     public function packageBooted(): void
     {

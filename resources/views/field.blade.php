@@ -85,7 +85,7 @@
                                 x-show="isSelectedOption(option)"
                                 x-on:click="setState(option)"
                             >
-                                Confirm
+                                @lang('filament-date-time-slot-picker::field.buttons.confirm.label')
                             </button>
                         </div>
                     </template>
