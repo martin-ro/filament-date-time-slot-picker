@@ -3,7 +3,7 @@
 return [
     'buttons' => [
         'confirm' => [
-            'label' => 'Confirm',
+            'label' => 'Select',
         ],
     ],
 ];
