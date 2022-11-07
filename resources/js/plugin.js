@@ -13,7 +13,7 @@ document.addEventListener('alpine:init', () => {
         init() {
             this.options = options.map((option) => ({
                 start: new Date(option[0]),
-                end: new Date(option[1]),
+                id: option[1],
             }));
         },
 
@@ -153,7 +153,15 @@ document.addEventListener('alpine:init', () => {
         },
 
         setState(option) {
-            this.state = [option.start, option.end];
+            this.state = [option.start, option.id];
+        },
+
+        isSelectedState(id) {
+            if (this.state) {
+                return this.state[1] === id;
+            }
+
+            return false;
         },
     }));
 });

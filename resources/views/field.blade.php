@@ -67,6 +67,10 @@
                 <div class="flex flex-col gap-3 overflow-y-auto h-96">
                     <template x-for="(option, index) in getOptionsForDate(selectedDate)" x-bind:key="index">
                         <div class="grid grid-cols-2 gap-2">
+{{--                            <div class="flex flex-col">--}}
+{{--                                <div x-text="JSON.stringify(isSelectedState(option.id))" class="text-xs block mb-2"></div>--}}
+{{--                                <div x-text="JSON.stringify(state)" class="text-xs block mb-2"></div>--}}
+{{--                            </div>--}}
                             <button
                                 type="button"
                                 class="rounded border p-2 text-sm font-semibold"
@@ -82,6 +86,9 @@
                             <button
                                 type="button"
                                 class="rounded bg-primary-600 text-sm font-semibold text-white"
+                                x-bind:class="{
+                                    'bg-green-500': isSelectedState(option.id),
+                                }"
                                 x-show="isSelectedOption(option)"
                                 x-on:click="setState(option)"
                             >

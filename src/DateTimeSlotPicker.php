@@ -21,7 +21,8 @@ class DateTimeSlotPicker extends Field
                 return null;
             }
 
-            return array_map(fn ($date): Carbon => Carbon::parse($date), $state);
+            return $state;
+            // return array_map(fn ($date): Carbon => Carbon::parse($date), $state);
         });
     }
 
