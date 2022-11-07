@@ -16,6 +16,8 @@
             state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
             options: @js($getOptions()),
         })"
+        wire:key="{{ $this->id }}.{{ $getStatePath() }}"
+        wire:ignore
         class="flex w-fit flex-col gap-6 sm:grid sm:grid-cols-5"
     >
         <div class="col-span-3 flex flex-col gap-4">
