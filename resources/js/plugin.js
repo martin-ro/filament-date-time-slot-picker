@@ -1,5 +1,5 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('dateTimeSlotPicker', ({ state, options }) => ({
+    Alpine.data('dateTimeSlotPicker', ({ state, options, timezone }) => ({
         state: state,
 
         options: [],
@@ -57,6 +57,7 @@ document.addEventListener('alpine:init', () => {
             date.setDate(date.getDate() + (index - date.getDay()));
             return date.toLocaleString(this.locale, {
                 weekday: 'short',
+                timeZone: timezone,
             });
         },
 
@@ -145,6 +146,7 @@ document.addEventListener('alpine:init', () => {
             return option.start.toLocaleTimeString(this.locale, {
                 hour: '2-digit',
                 minute: '2-digit',
+                timeZone: timezone,
             });
         },
 

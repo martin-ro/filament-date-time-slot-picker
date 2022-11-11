@@ -15,8 +15,8 @@
         x-data="dateTimeSlotPicker({
             state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
             options: @js($getOptions()),
+            timezone: @js($getTimezone()),
         })"
-        wire:key="{{ $this->id }}.{{ $getStatePath() }}"
         wire:ignore
         class="flex w-fit flex-col gap-6 sm:grid sm:grid-cols-5"
     >

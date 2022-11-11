@@ -12,6 +12,8 @@ class DateTimeSlotPicker extends Field
 
     protected array|Closure $options = [];
 
+    protected string | Closure | null $timezone = 'UTC';
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -36,5 +38,17 @@ class DateTimeSlotPicker extends Field
     public function getOptions(): array
     {
         return $this->evaluate($this->options);
+    }
+
+    public function timezone(string | Closure | null $timezone): static
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    public function getTimezone(): string
+    {
+        return $this->evaluate($this->timezone);
     }
 }
