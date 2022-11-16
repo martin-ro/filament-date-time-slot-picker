@@ -47,7 +47,7 @@
                             'after:absolute after:bottom-1 after:h-1 after:w-1 after:rounded-full after:bg-current': isToday(date),
                             'text-gray-500': !isOption(date),
                             'font-semibold': isOption(date),
-                            'cursor-pointer bg-green-200 text-primary-600 hover:bg-green-300': isOption(date) && !isSelectedDate(date),
+                            'cursor-pointer bg-green-200 text-gray-600 hover:bg-green-300': isOption(date) && !isSelectedDate(date),
                             'bg-primary-600 text-white': isSelectedDate(date),
                         }"
                         x-bind:style="index === 0 ? `grid-column: ${monthStartDay}` : false"
@@ -66,7 +66,7 @@
                     x-text="selectedDateLabel"
                 ></div>
 
-                <div class="flex flex-col gap-3 overflow-y-auto h-96">
+                <div class="flex flex-col gap-3 overflow-y-auto h-80">
                     <template x-for="(option, index) in getOptionsForDate(selectedDate)" x-bind:key="index">
                         <div class="grid grid-cols-2 gap-2">
                             <button
