@@ -1,12 +1,12 @@
 {
-    "name": "zepfietje/filament-date-time-slot-picker",
+    "name": "martin-ro/filament-date-time-slot-picker",
     "description": "Filament form field to select a date time slot.",
     "keywords": [
         "laravel",
         "filament",
         "date-time-slot-picker"
     ],
-    "homepage": "https://github.com/zepfietje/filament-date-time-slot-picker",
+    "homepage": "https://github.com/martin-ro/filament-date-time-slot-picker",
     "license": "MIT",
     "authors": [
         {
