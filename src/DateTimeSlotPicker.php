@@ -4,10 +4,13 @@ namespace ZepFietje\FilamentDateTimeSlotPicker;
 
 use Closure;
 use Filament\Forms\Components\Field;
+use Filament\Support\Concerns\HasExtraAttributes;
 use Illuminate\Support\Carbon;
 
 class DateTimeSlotPicker extends Field
 {
+    use HasExtraAttributes;
+
     protected string $view = 'filament-date-time-slot-picker::field';
 
     protected array|Closure $options = [];

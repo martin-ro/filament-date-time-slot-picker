@@ -17,8 +17,8 @@
             options: @js($getOptions()),
             timezone: @js($getTimezone()),
         })"
+        {{ $attributes->merge($getExtraAttributes())->class(['flex w-fit flex-col gap-6 sm:grid sm:grid-cols-5']) }}
         wire:ignore
-        class="flex w-fit flex-col gap-6 sm:grid sm:grid-cols-5"
     >
         <div class="col-span-3 flex flex-col gap-4">
             <div class="flex items-center">
